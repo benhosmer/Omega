@@ -1,0 +1,82 @@
+/* $Id: print.css,v 1.3 2010/08/17 22:08:30 jarek Exp $ */
+
+/*
+* Wrappers
+*/
+body,
+#page-wrapper,
+#main-wrapper,
+#main,
+#main-columns,
+#content-wrapper,
+#content {
+  margin: 0!important;
+  padding: 0!important;
+  min-width: 0!important;
+  max-width: none!important;
+  width: 100%!important;
+  border: none!important;
+  background: none!important;
+}
+
+/*
+* Elements
+*/
+/* Styles inherited by all elements */
+body {
+  font-size: 10pt;
+  color: #000000;
+  word-spacing: 1.1pt;
+  line-height: 1.4;
+}
+body * {
+  font-family: "Times New Roman", serif!important;
+}
+/* Headers */
+h1 {
+  font-size: 20pt;
+}
+h2 {
+  font-size: 16pt;
+}
+h3 {
+  font-size: 14pt;
+}
+h4,
+h5,
+h6 {
+  font-size: 12pt;
+}
+/* Links */
+a {
+  text-decoration: underline;
+}
+/* Lists */
+ul {
+  margin-left: 2pc;
+}
+ul li {
+  list-style: disc outside none;
+  padding-left: 0;
+}
+
+/*
+* Hidden
+*/
+#toolbar,
+#main-links-wrapper,
+#header-wrapper,
+#footer-wrapper,
+#sidebar-first,
+#sidebar-second,
+.breadcrumb,
+ul.links,
+.messages,
+.tabs,
+ul.pager,
+a.feed-icon,
+h2#add-comment-form,
+form#comment-form {
+  display: none!important;
+}
+

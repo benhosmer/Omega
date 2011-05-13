@@ -1,0 +1,391 @@
+/* $Id: base.css,v 1.4 2010/12/29 16:32:54 jarek Exp $ */
+
+/**
+ * Properties inherited by all elements
+ */
+html {
+  line-height: 1.7;
+  font-family: "Georgia", "Times New Roman", "Times", serif;
+  font-size: 13px;
+  word-wrap: break-word;
+}
+@media only screen and (max-device-width: 480px) {
+  html {
+    font-size: normal!important;
+  }
+}
+
+/**
+ * Headers
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #453320;
+  letter-spacing: -0.085ex;
+}
+h1,
+h2 {
+  margin: 15px 0 5px 0;
+  font-size: 24px;
+}
+h3 {
+  margin: 10px 0 3px 0;
+  font-size: 20px;
+}
+h4 {
+  margin: 7px 0 2px 0;
+  font-size: 16px;
+}
+h5,
+h6 {
+  margin: 5px 0 2px 0;
+  font-size: 14px;
+}
+
+/**
+ * Block elements
+ */
+p {
+  margin: 14px 0;
+}
+p:first-child {
+  margin-top: 0;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+pre {
+  margin: 14px 0;
+  padding: 15px;
+  background-color: #f8eee1;
+  border: 1px solid #e1b37c;
+  font-family: "Courier", "Courier New", monospace;
+  white-space: pre-wrap;
+  overflow: hidden;
+}
+blockquote {
+  padding: 0 0 0 15px;
+  margin: 20px 0 20px 20px;
+  border-left: 7px solid #C03F06;
+  font-style: italic;
+}
+hr {
+  height: 1px;
+  border: none;
+  background-color: #B09370;
+}
+
+/**
+ * Inline elements
+ */
+strong {
+  font-weight: 700;
+}
+em {
+  font-style: normal;
+  font-weight: 700;
+}
+kbd {
+  background-color:#F1EED4;
+  border:1px outset #575757;
+  color:#333333;
+  padding:2px 7px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+abbr[title],
+dfn[title],
+acronym[title] {
+  border-bottom: 2px dotted #453320;
+}
+samp,
+var,
+code {
+  outline: 1px dashed #63565F;
+}
+ins {
+  text-decoration: underline;
+}
+del {
+  text-decoration: line-through;
+}
+sub {
+  vertical-align: sub;
+}
+sup {
+  vertical-align: super
+}
+tt {
+  font-family: monospace;
+}
+b {
+  font-weight: 700;
+}
+i {
+  font-style: italic;
+}
+*::selection {
+	background: #453320;
+  color: #ffffff;
+}
+*::-moz-selection {
+	background: #453320;
+  color: #ffffff;
+}
+
+/**
+ * Lists
+ */
+ul,
+ol,
+dl {
+  list-style-position: inside;
+}
+ul li,
+ol li,
+dl dt,
+dl dd {
+}
+p + ul {
+  margin-top: 5px;
+}
+ul {
+  list-style: none inside none;
+  margin: 0 0 0 15px;
+}
+ul li {
+  padding: 0 0 0 14px; /* LTR */
+  background: url(images/bullet.png) no-repeat 0 9px; /* LTR */
+}
+li.collapsed a:after {
+	content: "›";
+  padding-left: 5px;
+  font-size: 14px;
+}
+li > ul {
+  margin-top: 8px;
+}
+ul.inline li {
+  display: inline;
+  margin: 0 10px 0 0;
+}
+li.expanded a {
+}
+li.expanded ul {
+  margin: 10px 0 0 12px; /* LTR */
+}
+ol {
+  list-style: decimal inside none;
+  margin: 0 0 0 15px;
+}
+dt {
+  margin-top: 5px;
+  font-weight: 900;
+}
+
+/**
+ * Links
+ */
+a {
+  color: #c03f06;
+  text-decoration: none;
+}
+a:hover {
+  color: #453320;
+}
+a:focus {
+  outline: 1px dashed #993333;;
+  color: #993333;;
+}
+a::-moz-selection {
+  background-color: #C03F06;
+}
+a::selection {
+  background-color: #C03F06;
+}
+
+/**
+ * Tables
+ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+th,
+td {
+  padding: 11px 14px;
+  text-align: left;
+  vertical-align: middle;
+}
+th,
+thead,
+th a,
+thead a,
+th a:hover,
+thead a:hover {
+  background-color: #333333;
+  color: #fcfcf8;
+}
+tr {
+  border-bottom: 1px solid #B09370;
+}
+caption {
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+/**
+ * Forms
+ */
+/* Wrappers, labels and helpers */
+fieldset {
+  margin: 10px 0;
+  padding: 5px 0 0 0;
+  border-top: 4px double #B09370;
+}
+legend {
+  padding-right: 7px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.form-item {
+  margin: 10px 0;
+}
+.form-item .description {
+  margin-top: 6px;
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.8
+}
+label {
+  vertical-align: middle;
+  display: block;
+  color: #000000;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+label.option {
+  display: inline;
+}
+span.form-required {
+  font-weight: 700;
+  color: #FF3300;
+}
+
+/* Text inputs */
+input.form-text,
+input.form-password,
+input.form-file,
+textarea {
+  padding: 6px;
+  font-family: "Arial", sans-serif;
+  font-size: inherit;
+  color: #404040;
+  border: 1px solid #E1B37C;
+  background-color: #FFFCD6;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input.form-text:focus,
+input.form-password:focus,
+input.form-file:focus,
+textarea:focus {
+  border: 1px solid #C03F06;
+  background-color: #ffffff;
+}
+input.form-text,
+input.form-password,
+input.form-file {
+  width: 100%;
+  max-width: 320px;
+}
+textarea {
+  width: 100%;
+  height: 230px;
+  resize: none;
+}
+/* Choice inputs */
+select {
+  padding: 6px;
+}
+.form-radios,
+.form-checkboxes {
+  margin: 3px 0;
+}
+.form-item-choice,
+.form-item.form-type-radio,
+.form-item.form-type-checkbox {
+  margin: 4px 0;
+}
+input.form-checkbox,
+input.form-radio {
+  display: inline;
+  vertical-align: middle;
+  margin: 0 3px 0 0;
+}
+/* Buttons */
+input.form-button,
+input.form-submit {
+  cursor: pointer;
+  color: #ffffff;
+  border: none;
+  margin: 4px 10px 4px 0;
+  background-color: #453320;
+  font-family: "Arial", sans-serif;
+  font-size: 1qpx;
+  font-weight: 700;
+  padding: 7px 12px;
+  text-transform: uppercase;
+}
+input.form-button:hover,
+input.form-submit:hover,
+input.form-button:focus,
+input.form-submit:focus {
+  background-color: #C03F06;
+}
+/* Disabled inputs */
+input[disabled="disabled"] {
+  background-color: #eaeaea;
+}
+/* Higlight required form item if user has forgotten to fill it */
+input.error,
+textarea.error,
+select.error {
+  background-color: #feece3;
+  border: 1px solid #e5170a;
+}
+input.error:focus,
+textarea.error:focus,
+select.error:focus {
+  background-color: #fef7f5;
+  border: 1px solid #d43308!important;
+}
+
+/**
+ * Undo
+ */
+/* body { line-height: 1.7; } */
+#branding {
+  line-height: 1;
+}
+/* ul { margin: 0 0 0 15px; } */
+.block ul,
+#navigation ul {
+  margin: 0;
+}
+/* ul li { padding: 0 0 0 14px; background: url(images/bullet.png) no-repeat 0 9px; } */
+.block ul li,
+.node ul.links li,
+#navigation li {
+  padding: 0;
+  background: none;
+}
