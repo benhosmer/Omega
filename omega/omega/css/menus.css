@@ -1,0 +1,94 @@
+/* Make the primary/secondary menus a little better looking by default */
+
+/* 2.) Main Menu Styles */
+
+#region-menu ul.main-menu {
+  background: #DDD;
+  border: 1px solid #CCC;
+  padding: 0;
+  margin-bottom: 1.5em;
+  list-style-type: none;
+}
+
+#region-menu ul.main-menu,
+#region-menu ul.main-menu li {
+  margin: 0;
+  padding: 0;
+}
+#region-menu ul.main-menu li {
+  position: relative;
+  display: inline-block;
+}
+#region-menu ul.main-menu li a {
+  padding: 5px 10px;
+  display: inline-block;
+  border:0;
+  border-right: 1px solid #CCC;
+  text-decoration: none;
+  background-color: #EEE;
+}
+
+#region-menu ul.main-menu li a:hover,
+#region-menu ul.main-menu li:hover > a,
+#region-menu div.main-menu > ul.main-menu > li.active-trail > a {
+  background-color: #FFF;
+}
+#region-menu ul.main-menu li.active-trail > a {
+  color: #000;
+}
+#region-menu ul ul {
+  position: absolute;
+  z-index: 100;
+  display: none;
+  left: -1px;
+  min-width: 150px;
+}
+#region-menu ul ul ul {
+  position: absolute;
+  top: 0.5em;
+  left: 165px;
+  z-index: 100;
+  display: none;
+}
+#region-menu ul.secondary-items li {
+  display: block;
+  min-width: 150px;
+}
+#region-menu ul.secondary-items li a {
+  min-width: 150px;
+  border-right: 0;
+}
+#region-menu li.has-subitems:hover > ul,
+#region-menu li.has-subitems ul:hover {
+  display: block;
+}
+
+/* Different styles for actual secondary menus that are NOT nested in the top
+   level navigation */
+#region-menu ul.secondary-menu {
+  background-color: #DDD;
+  border: 1px solid #CCC;
+  padding: 0;
+  margin-bottom: 1.5em;
+  list-style-type: none;
+  display: block;
+  font-size: 0.8em;
+  border-top: 0;
+}
+#region-menu ul.secondary-menu li {
+  list-style-type: none;
+  display: inline-block;
+}
+#region-menu ul.secondary-menu li a {
+  padding: 5px 10px;
+  display: inline-block;
+  border:0;
+  border-right: 1px solid #CCC;
+  text-decoration: none;
+  background-color: #FFF;
+}
+#region-menu ul.secondary-menu li a:hover,
+#region-menu ul.secondary-menu li.active-trail a,
+#region-menu ul.secondary-menu li.active a {
+  background-color: #EEE;
+}
