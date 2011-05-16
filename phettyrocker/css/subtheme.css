@@ -11,10 +11,26 @@ background-color: yellow;
 }
 
 
+/* The User Wrapper at the top of the page, the left one */
+#region-user_bar_first {
+clear: both;
+padding: 5px;
+}
+
+/* The User Wrapper at the top of the page, the right one */
+
+#region-user_bar_second {
+float: right;
+padding: 5px;
+}
+
+
+
+
 /* The middle content section */ 
 
 #content-outer-wrapper {
-background-color: green;
+background-color: blue;
 }
 
 #footer-outer-wrapper {
