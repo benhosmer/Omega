@@ -10,6 +10,8 @@ It adds wrappers around the content for bettery coloring.
 
 It requires the Omega them folder because it is an Omega base theme.
 
+Be sure to set the menu zone in the theme settings to dynamic, otherwise it won't display.
+
 Omega/
 PhettyRocker/
 

@@ -10,10 +10,13 @@ background-color: yellow;
 
 }
 
+.container-12 .grid-9, .container-16 .grid-12 {
+width: 50px;
+}
+
 
 /* The User Wrapper at the top of the page, the left one */
 #region-user_bar_first {
-clear: both;
 padding: 5px;
 }
 
