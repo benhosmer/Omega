@@ -1,14 +1,5 @@
-;##########################################################################################
-;      _                _                                  _                     _
-;   __| | _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_    __ _  ___  ___| | _____
-;  / _` |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|  / _` |/ _ \/ _ \ |/ / __|
-; | (_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_  | (_| |  __/  __/   <\__ \
-;  \__,_|\___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|  \__, |\___|\___|_|\_\___/
-;                              |_|                               |___/
-;##########################################################################################
-
 name        = phettyrocker
-description = HTML5 Starterkit for <a href="http://himer.us/omega960"><strong>Omega</strong></a>. Make a copy of this subtheme to get started building your own <strong>Omega</strong> theme. For help see our <a href="http://himer.us/omega960"><strong>documentation</strong></a> and <a href="http://himerus.com"><strong>video</strong></a> tutorials. If you have a problem and need additional support please use the <a href="http://drupal.org/project/issues/omega"><strong>issue queue</strong></a>. Don't forget also to download and enable the <a href="http://himer.us/delta-module"><strong>Delta</strong></a> module for contextual layouts.
+description = An Omega-Based subtheme that is dark and scary created by <a href="http://www.radarearth.com">Radarearth.com</a> for PhettyRocker.com
 screenshot = screenshot.png
 core       = 7.x
 base theme = omega
