@@ -25,11 +25,9 @@ background-color: purple;
 
 #region-header_first, #region-header_second, #region-preface_first, #region-preface_second, #region-preface_third,
 #region-content, #region-sidebar_first, #region-sidebar_second, #region-postscript_first, #region-postscript_second, #region-postscript_third,
-#region-postscript_fourth, #region-footer_first, #region-footer_second
+#region-postscript_fourth, #region-footer_first, #region-footer_second, #user-outer-wrapper {
 
-{
-
-background-color: #ffffff;
+background-color: #72716c;
 
 }
 
