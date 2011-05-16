@@ -15,6 +15,7 @@ background-color: yellow;
 
 .container-12 .grid-9, .container-16 .grid-12 {
 width: 50px;
+
 }
 
 
@@ -22,6 +23,7 @@ width: 50px;
 
 #region-user_bar_first {
 padding: 5px;
+
 }
 
 
@@ -30,6 +32,7 @@ padding: 5px;
 #region-user_bar_second {
 float: right;
 padding: 5px;
+
 }
 
 
@@ -37,6 +40,7 @@ padding: 5px;
 
 #content-outer-wrapper {
 background-color: blue;
+
 }
 
 
@@ -44,6 +48,7 @@ background-color: blue;
 
 #footer-outer-wrapper {
 background-color: purple;
+
 }
 
 
@@ -63,6 +68,7 @@ background-color: #72716c;
 /* This section changes the branding region, ie. site-title and site-name */
 #branding-outer-wrapper {
 background-color: blue;
+
 }
 
 
@@ -90,4 +96,5 @@ color: gray;
 #region-menu ul.main-menu li a:hover, #region-menu ul.main-menu li:hover > a, #region-menu div.main-menu > ul.main-menu > li.active-trail > a {
 color: orange;
 background-color: black;
+
 }
