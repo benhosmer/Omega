@@ -10,15 +10,20 @@ background-color: yellow;
 
 }
 
+
+/* The first user-bar container */
+
 .container-12 .grid-9, .container-16 .grid-12 {
 width: 50px;
 }
 
 
 /* The User Wrapper at the top of the page, the left one */
+
 #region-user_bar_first {
 padding: 5px;
 }
+
 
 /* The User Wrapper at the top of the page, the right one */
 
@@ -28,19 +33,22 @@ padding: 5px;
 }
 
 
-
-
 /* The middle content section */ 
 
 #content-outer-wrapper {
 background-color: blue;
 }
 
+
+/* The footer content section */
+
 #footer-outer-wrapper {
 background-color: purple;
 }
 
-/* Color each region */
+
+
+/* Color each region, since we have overriden the colors for each wrapper */
 
 #region-header_first, #region-header_second, #region-preface_first, #region-preface_second, #region-preface_third,
 #region-content, #region-sidebar_first, #region-sidebar_second, #region-postscript_first, #region-postscript_second, #region-postscript_third,
@@ -50,10 +58,14 @@ background-color: #72716c;
 
 }
 
+
+
 /* This section changes the branding region, ie. site-title and site-name */
 #branding-outer-wrapper {
 background-color: blue;
 }
+
+
 
 /* The color of the site title (It is a link) */
 
@@ -73,6 +85,7 @@ color: gray;
 }
 
 
+/* The menu when used a drop-down has coloring that goes with it as well */
 
 #region-menu ul.main-menu li a:hover, #region-menu ul.main-menu li:hover > a, #region-menu div.main-menu > ul.main-menu > li.active-trail > a {
 color: orange;
