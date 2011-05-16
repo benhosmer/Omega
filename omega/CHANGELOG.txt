@@ -1,0 +1,193 @@
+##########################################################################################
+      _                _                                  _                     _
+   __| | _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_    __ _  ___  ___| | _____
+  / _` |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|  / _` |/ _ \/ _ \ |/ / __|
+ | (_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_  | (_| |  __/  __/   <\__ \
+  \__,_|\___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|  \__, |\___|\___|_|\_\___/
+                              |_|                               |___/
+##########################################################################################
+
+##########################################################################################
+##### Omega Theme
+##########################################################################################
+Informational:  http://himer.us/omega960
+Project Page:   http://drupal.org/project/omega
+Issue Queue:    http://drupal.org/project/issues/omega
+Usage Stats:    http://drupal.org/project/usage/omega
+Twitter:        http://twitter.com/Omeglicon
+Maintainer(s):  Jake Strawn 
+                http://himerus.com
+                http://developmentgeeks.com
+                http://facebook.com/developmentgeeks
+                http://drupal.org/user/159141
+                http://twitter.com/himerus
+##########################################################################################
+##### CHANGELOG.txt
+##########################################################################################
+
+CHANGELOG.txt to track changes to the Omega theme.
+
+##########################################################################################
+##### Current Release: 7.x-2.1
+##### Pending changes for Next Release
+########################################################################################## 
+
+##########################################################################################
+##### Changes in: 7.x-2.1
+########################################################################################## 
+
+3/01/2011
+=========
+#1077448  - give priority to zone--ZONEID.tpl.php rather than zone.tpl.php (regression)
+#1077662  - Add default stylesheets/javascript to the starterkits
+#965036   - Conditional IE Stylesheet
+
+2/28/2011
+=========
+#1076292  - Fix Omega CSS loading order/method
+
+##########################################################################################
+##### Changes in: 7.x-2.0
+########################################################################################## 
+
+2/24/2011
+=========
+#1071666  - Missing page titles
+#0000000  - Update form.css and introduce formalize.me library for form defaultification
+#0000000  - FIXING that one issue with name/pass HTML5 placeholder text
+#0000000  - CHANGING search field default value to use HTML5 placeholder text
+
+2/23/2011
+=========
+#1070640  - Make Branding & Menu regions "real" regions
+#1070628  - Restructure Menu Options/Rendering
+#1066444  - Would it be possible to add an "active-trail" class for drop-down menus?
+
+
+##########################################################################################
+##### Changes in: 7.x-2.0-beta3
+########################################################################################## 
+
+2/20/2011
+=========
+#1067694  - HTML5 additions to Reset CSS
+#1065270  - Strict warning: Creating default object from empty value
+
+2/17/2011
+=========
+#0000000  - Adding an XHTML Starterkit for those that don't want to use HTML5
+#0000000  - Make the screenshot.png files in core & starterkits more obvious
+
+
+##########################################################################################
+##### Changes in: 7.x-2.0-beta2
+########################################################################################## 
+
+2/16/2011
+=========
+#1061500  - FIXING: Additional Region Classes not being Applied
+#1063780  - Add first/last & zebra classes to the regions in a zone
+#1062418  - Zebra class + first/last classes for blocks
+#1062780  - PHP warnings when posting a comment
+
+##########################################################################################
+##### Changes in: 7.x-2.0-beta2
+########################################################################################## 
+
+2/15/2011
+=========
+#1061500  - Additional Region Classes not being Applied
+
+2/14/2011
+=========
+#1060732  - Fix E_NOTICE errors
+#1061026  - Undefined index: menu_data in include() and missing debug_blocks.js
+
+##########################################################################################
+##### Changes in: 7.x-2.0-beta1
+########################################################################################## 
+
+2/10/2011 - 2/13/2011
+=====================
+#0000000  - Fixing template diffs between base & starterkit
+#0000000  - Fixing empty h1 in region--content.tpl.php
+#0000000  - Removing unmodified core templates in omega/omega/templates
+#0000000  - Syncing omega.info and omega_starterkit.info
+#1060320  - Starting work on turning zones into a renderable array
+          - Zones ARE now renderable arrays
+          - This requires editing page.tpl.php in order for content to render again
+          - Please compare the current version in omega starterkit for proper syntax
+          - See: http://drupal.org/node/1060320 for more information
+          
+#0000000  - Adding theme setting for form alters, currently only the login form links          
+#0000000  - Removing theme setting for traditional search block as it was not being used
+#0000000  - Cleaning up default region placements and sizing for omega/starterkit
+#0000000  - Omega BASE now usable again
+          - The starterkit and any subthemes WERE working, but Omega base wouldn't work
+          - should it have been enabled (which is not recommended anyway)
+          - the above modifications made Omega work standalone again.
+          
+#1060338  - Starting HTML5 upgrade on the html5 branch on github.
+          - HTML5 Update complete, and will require some level of template editing on 
+          - existing subthemes. Pay special attention to html.tpl.php, page.tpl.php and 
+          - node.tpl.php in your pre-existing subthemes. Any other templates you have 
+          - edited "may" require updating, if in doubt refer to templates in omega/omega          
+
+#0000000  - Removing all CVS id tags
+
+##########################################################################################
+##### Changes in: 7.x-2.0-alpha11
+########################################################################################## 
+
+2/09/2011
+=========
+#1055376  - Undefined index error in preprocess_block by ngmaloney
+#1054442  - Documentation link not right
+
+2/05/2011
+=========
+#1052374  - add isset() around $content_zone and $content
+
+##########################################################################################
+##### Changes in: 7.x-2.0-alpha10
+########################################################################################## 
+
+2/03/2011
+=========
+#1050404  - undefined variable: title if title is not set on page
+
+##########################################################################################
+##### Changes in: 7.x-2.0-alpha9
+########################################################################################## 
+
+2/02/2011
+=========
+#0000000  - general updates, removed placholder blocks from omega_tools, and turned those
+            into items rendered BY omega via a theme setting instead. Can be found under
+            the Grid Overlay/Debugging section of the theme settings page.
+
+1/17/2011
+=========
+#1029442  - Problem with Admin theme settings - fatal error, ns()
+
+
+##########################################################################################
+##### Changes in: 7.x-2.0-alpha8
+########################################################################################## 
+
+1/13/2011
+=========
+#978812   - Head tile and strip tags
+
+1/14/2011
+=========
+#1024060  - Regions set to 0 (zero) width should not be rendered
+          - General cleanup, removing debug calls
+          
+1/15/2011
+=========
+#1028552  - Avoid from rendering empty zones.
+
+1/16/2011
+=========
+#1029262  - Avoid from rendering empty zone groups.

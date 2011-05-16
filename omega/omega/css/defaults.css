@@ -1,0 +1,87 @@
+/** ################# 1.) Generic Page Elements ####################### */
+/* clearfix fix to prevent padding at bottom of page. FML */
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+}
+/* Skip link */
+#skip-link a:link,
+#skip-link a:visited {
+  font-weight: bold;
+  background: #fff;
+  padding: 0px 5px;
+  text-decoration: none;
+  font-size: 80%;
+  text-align: right;
+  top: -99em;
+  left: auto;
+  position: absolute;
+}
+
+#skip-link a:hover,
+#skip-link a:focus,
+#skip-link a:active  {
+  height: auto;
+  width: auto;
+  overflow: visible;
+  top:0;
+  left:0;
+  position: fixed;
+  z-index: 1000;
+}
+
+/**
+ * Starting new region of CSS for the NEW defaults for 2.x
+ * Many of the above styles can likely be removed completely.
+ */
+.logo-img, 
+.site-name-slogan {
+  display: inline-block;
+  float: left;
+}
+.site-name-slogan {
+  margin-left: 20px;
+}
+h1.site-title ,
+h2.site-title {
+  font-size: 36px;
+}
+h1.site-title a,
+h2.site-title a{
+  text-decoration: none;;
+}
+.site-title,
+.site-slogan {
+  margin: 0;
+}
+.site-slogan {
+  font-style: italic;
+  font-weight: normal;
+}
+
+/* Content Tabs */
+fieldset {
+  padding: 20px;
+  border: 1px solid #DDD;
+}
+fieldset legend {
+  font-weight: bold;
+}
+
+/* Maintenance page */
+.maintenance-page #header {
+  margin-top: 160px;
+}
+.maint {
+  color: #234600;
+  background: #F8FFF0;
+  border: 3px solid #DDD;
+  padding: 35px 50px 50px 50px;
+  margin-top: 20px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+}
