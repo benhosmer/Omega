@@ -61,7 +61,7 @@ zones[user][] = user_bar_second
 
 ;-----/ The branding zone is required and contains "special" content items
 zones[branding][] = branding
-zones[branding][] = menu
+zones[menu][] = menu
 
 zones[header][] = header_first
 zones[header][] = header_second
