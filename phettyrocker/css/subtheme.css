@@ -72,6 +72,14 @@ background-color: blue;
 }
 
 
+/* We are using Google Fonts for the site-title, this is done through the interface but added
+* here for reference.
+*
+* h1.site-title a, h2.site-title a { 
+* font-family: "UnifrakturMaguntia"; font-size: 2.5em;
+*
+* }
+*/
 
 /* The color of the site title (It is a link) */
 
@@ -87,6 +95,15 @@ color: #000;
 h1.site-title a:hover, h2.site-title a:hover {
 text-decoration: none;
 color: gray;
+
+}
+
+
+
+/* Add some margin to th The site-slogan */
+
+.site-slogan {
+padding-botom: 15px;
 
 }
 
