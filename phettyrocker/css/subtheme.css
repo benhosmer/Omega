@@ -3,7 +3,7 @@
 /* todo: Document these overrides */
 
 
-/* The page Background color If the footer, branding, and content wrappers are colored this isn't needed*/
+/* The page Background color If the footer, branding, and content wrappers are colored this isn't needed */
 
 #page {
 background-color: yellow;
@@ -21,8 +21,9 @@ width: 50px;
 
 /* The User Wrapper at the top of the page, the left one */
 
-#region-user_bar_first {
+#region-user_bar_first, .ul {
 padding: 10px;
+list-style: none;
 
 }
 
@@ -65,9 +66,24 @@ background-color: #72716c;
 
 
 
+/* Interior branding regions ? */
+#region-branding {
+background-color: red;
+
+}
+
+
+
 /* This section changes the branding region, ie. site-title and site-name */
 #branding-outer-wrapper {
 background-color: blue;
+
+}
+
+/* Use a custom google font */
+@font-face {
+font-family: UnifrakturMaguntia;
+src: url(../google_fonts/UnifrakturMaguntia-Book.ttf);
 
 }
 
@@ -76,14 +92,20 @@ background-color: blue;
 * here for reference.
 *
 * h1.site-title a, h2.site-title a { 
-* font-family: "UnifrakturMaguntia"; font-size: 2.5em;
+* font-family: "UnifrakturMaguntia"; 
+* font-size: 2.5em;
 *
-* }
+*}
 */
+
+
+
 
 /* The color of the site title (It is a link) */
 
 h1.site-title a, h2.site-title a {
+font-family: UnifrakturMaguntia;
+font-size: 2.5em;
 text-decoration: none;
 color: #000;
 
@@ -100,10 +122,10 @@ color: gray;
 
 
 
-/* Add some margin to th The site-slogan */
+/* Add some padding to the The site-slogan */
 
 .site-slogan {
-padding-botom: 15px;
+padding-bottom: 15px;
 
 }
 
