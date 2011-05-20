@@ -125,11 +125,12 @@ color: gray;
 /* Add some padding to the The site-slogan */
 
 .site-slogan {
-padding-bottom: 15px;
+padding-bottom: 20px;
+float: right;
 
 }
 
-
+/* THIS NEEDS MORE WORK */
 /* The menu when used a drop-down has coloring that goes with it as well */
 
 #region-menu ul.main-menu li a:hover, #region-menu ul.main-menu li:hover > a, #region-menu div.main-menu > ul.main-menu > li.active-trail > a {
