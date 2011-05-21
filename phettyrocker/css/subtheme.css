@@ -20,6 +20,7 @@ width: 50px;
 
 
 /* The User Wrapper at the top of the page, the left one */
+/* This needs more work. The first user bar still displays as a list. I want it horizontal */
 
 #region-user_bar_first, .ul {
 padding: 10px;
@@ -69,6 +70,7 @@ background-color: #72716c;
 /* Interior branding regions ? */
 #region-branding {
 background-color: red;
+background-image: url(../images/region-branding-background.png);
 
 }
 
@@ -129,6 +131,22 @@ padding-bottom: 20px;
 float: right;
 
 }
+
+
+
+/* Let's play with moving the logo around a little here */
+/* This is experimental and may not stay */
+
+.logo-img {
+position: relative;
+left: 385px; /* This seems to center it horizontally on the page */
+top: -60px; /* This overlaps the logo over the branding and user areas */
+
+}
+
+
+
+
 
 /* THIS NEEDS MORE WORK */
 /* The menu when used a drop-down has coloring that goes with it as well */
