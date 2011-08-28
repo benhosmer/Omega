@@ -3,7 +3,7 @@
 Readme for Omega Base Theme subtheme.css
 
 This is intended to make subtheming using the Omega Theme system quicker by creating a 
-subtheme.css with commonly used and overriden values. The colors are meant to be replaced. The 
+subtheme.css with commonly used and overridden values. The colors are meant to be replaced. The 
 .info file also has been modified to reflect this issue: http://drupal.org/node/1074872
 
 It adds wrappers around the content for bettery coloring.
