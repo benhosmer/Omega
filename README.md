@@ -1,4 +1,4 @@
-/* Created: 16-05-2011. Modified 16-05-2011 17:35 */
+/* Created: 16-05-2011. Modified 29-08-2011 18:05 */
 
 Readme for Omega Base Theme subtheme.css
 
@@ -12,9 +12,4 @@ It requires the Omega them folder because it is an Omega base theme.
 
 Be sure to set the menu zone in the theme settings to dynamic, otherwise it won't display.
 
-Omega/
-PhettyRocker/
-
-Both of these directories are needed. The PhettyRocker is a named subtheme of the Omega Base Theme.
-
-You can easily create your own subthem using omega_tools: http://drupal.org/project/omega_tools
+This 3.x Branch updates the Omega base theme to reflect the latest updates from http://drupal.org/project/omega

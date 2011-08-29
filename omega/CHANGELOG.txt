@@ -15,12 +15,16 @@ Project Page:   http://drupal.org/project/omega
 Issue Queue:    http://drupal.org/project/issues/omega
 Usage Stats:    http://drupal.org/project/usage/omega
 Twitter:        http://twitter.com/Omeglicon
-Maintainer(s):  Jake Strawn 
-                http://himerus.com
-                http://developmentgeeks.com
-                http://facebook.com/developmentgeeks
-                http://drupal.org/user/159141
-                http://twitter.com/himerus
+Maintainer(s):  
+                Jake Strawn 
+                  http://himerus.com
+                  http://developmentgeeks.com
+                  http://facebook.com/developmentgeeks
+                  http://drupal.org/user/159141
+                  http://twitter.com/himerus
+                Sebastian Siemssen
+                  http://twitter.com/thefubhy
+                  http://drupal.org/user/761344
 ##########################################################################################
 ##### CHANGELOG.txt
 ##########################################################################################
@@ -28,166 +32,152 @@ Maintainer(s):  Jake Strawn
 CHANGELOG.txt to track changes to the Omega theme.
 
 ##########################################################################################
-##### Current Release: 7.x-2.1
+##### Current Release: 7.x-3.0-rc2
 ##### Pending changes for Next Release
 ########################################################################################## 
 
-##########################################################################################
-##### Changes in: 7.x-2.1
-########################################################################################## 
-
-3/01/2011
+7/31/11
 =========
-#1077448  - give priority to zone--ZONEID.tpl.php rather than zone.tpl.php (regression)
-#1077662  - Add default stylesheets/javascript to the starterkits
-#965036   - Conditional IE Stylesheet
+#1233462  - Debug access was accidently being cached.
 
-2/28/2011
+7/29/11
 =========
-#1076292  - Fix Omega CSS loading order/method
+#983758   - Panels Integration #1. This might not yet cover mini panels. 
+
+#1233550  - Fixed a bug that caused zones to be incorrectly described as "empty" in the
+theme settings.
 
 ##########################################################################################
-##### Changes in: 7.x-2.0
+##### Changes in: 7.x-3.0-rc1
 ########################################################################################## 
 
-2/24/2011
+7/27/11
 =========
-#1071666  - Missing page titles
-#0000000  - Update form.css and introduce formalize.me library for form defaultification
-#0000000  - FIXING that one issue with name/pass HTML5 placeholder text
-#0000000  - CHANGING search field default value to use HTML5 placeholder text
+#1230786  - Fixed the region & zone configuration tab to properly remove the "There are
+no unassigned regions" message when there are unassigned regions.
 
-2/23/2011
+#1231160  - Fixed template_preprocess_node to produce the proper content_attributes_array.
+
+7/26/11
 =========
-#1070640  - Make Branding & Menu regions "real" regions
-#1070628  - Restructure Menu Options/Rendering
-#1066444  - Would it be possible to add an "active-trail" class for drop-down menus?
-
+#1229798  - Fixed alpha_cache_clear().
 
 ##########################################################################################
-##### Changes in: 7.x-2.0-beta3
+##### Changes in: 7.x-3.0-beta2
 ########################################################################################## 
 
-2/20/2011
+7/25/11
 =========
-#1067694  - HTML5 additions to Reset CSS
-#1065270  - Strict warning: Creating default object from empty value
+#1228106  - Major code review and performance enhancements. This needs to be tested!
 
-2/17/2011
+7/24/11
 =========
-#0000000  - Adding an XHTML Starterkit for those that don't want to use HTML5
-#0000000  - Make the screenshot.png files in core & starterkits more obvious
+#1220198  - Sadly I had to also revert the latest changes on the equal height feature
+since due to a WebKit bug the height of an element does not inherit the min-height value
+properly and therefore the whole concept behind the last patch is wonky. (@see the issue
+on d.o for further explanation).
 
+7/18/11
+=========
+#1220198  - Reverting the equal height feature changes from yesterday. This feature is
+now based on jQuery again but the code was rewritten. It is now based on a jQuery
+library from Ben Alman. This should even work with expandable textareas / fieldsets
+and basically everything else that might have an impact on the height of a single
+now and basically everything else that might have an impact on the height of a single
+element in a group.
+
+7/17/11
+=========
+#1220198  - The equal height feature is now solely based on CSS. This might still not
+be the perfect solution but the jQuery approach that we were using before proved to be
+a dead end.
+
+#1220950  - Fixed and minified RTL grid CSS files.
+
+7/09/11
+=========
+#1214048  - Omega no longer abuses the variables table for the caching. Instead we are
+now using cache_set and cache_get.
+
+#1213176  - Fixed the theme settings in the starterkits. The global.css file is now active
+by default.
 
 ##########################################################################################
-##### Changes in: 7.x-2.0-beta2
+##### Changes in: 7.x-3.0-beta2
 ########################################################################################## 
 
-2/16/2011
+6/29/11
 =========
-#1061500  - FIXING: Additional Region Classes not being Applied
-#1063780  - Add first/last & zebra classes to the regions in a zone
-#1062418  - Zebra class + first/last classes for blocks
-#1062780  - PHP warnings when posting a comment
+#1204254  - Removed mobile.css and style.css in favor of one single global.css.
+
+6/28/11
+=========
+#1202708  - Fix inline display of field labels.
 
 ##########################################################################################
-##### Changes in: 7.x-2.0-beta2
+##### Changes in: 7.x-3.0-beta1
 ########################################################################################## 
 
-2/15/2011
+6/27/11
 =========
-#1061500  - Additional Region Classes not being Applied
+#1200272  - Fixed a bug that was incorrectly assuming that all regions are part of a zone.
 
-2/14/2011
+#1191762  - Reworked the JavaScript libraries to use Drupal.behaviors.
+
+#1198476  - If the media query library is enabled the equal heights feature will be
+deactivated on the mobile version.
+
+6/19/11
 =========
-#1060732  - Fix E_NOTICE errors
-#1061026  - Undefined index: menu_data in include() and missing debug_blocks.js
+#1192918  - The RTL grid CSS files were upside-down for the pull, push, prefix and suffix
+CSS classes. This is now fixed.
 
-##########################################################################################
-##### Changes in: 7.x-2.0-beta1
-########################################################################################## 
-
-2/10/2011 - 2/13/2011
-=====================
-#0000000  - Fixing template diffs between base & starterkit
-#0000000  - Fixing empty h1 in region--content.tpl.php
-#0000000  - Removing unmodified core templates in omega/omega/templates
-#0000000  - Syncing omega.info and omega_starterkit.info
-#1060320  - Starting work on turning zones into a renderable array
-          - Zones ARE now renderable arrays
-          - This requires editing page.tpl.php in order for content to render again
-          - Please compare the current version in omega starterkit for proper syntax
-          - See: http://drupal.org/node/1060320 for more information
-          
-#0000000  - Adding theme setting for form alters, currently only the login form links          
-#0000000  - Removing theme setting for traditional search block as it was not being used
-#0000000  - Cleaning up default region placements and sizing for omega/starterkit
-#0000000  - Omega BASE now usable again
-          - The starterkit and any subthemes WERE working, but Omega base wouldn't work
-          - should it have been enabled (which is not recommended anyway)
-          - the above modifications made Omega work standalone again.
-          
-#1060338  - Starting HTML5 upgrade on the html5 branch on github.
-          - HTML5 Update complete, and will require some level of template editing on 
-          - existing subthemes. Pay special attention to html.tpl.php, page.tpl.php and 
-          - node.tpl.php in your pre-existing subthemes. Any other templates you have 
-          - edited "may" require updating, if in doubt refer to templates in omega/omega          
-
-#0000000  - Removing all CVS id tags
-
-##########################################################################################
-##### Changes in: 7.x-2.0-alpha11
-########################################################################################## 
-
-2/09/2011
+6/17/11
 =========
-#1055376  - Undefined index error in preprocess_block by ngmaloney
-#1054442  - Documentation link not right
+#1191764  - We are no longer use unset() on regions if they are not enabled. Instead move 
+them to #excluded so that subthemes can use them later (in hook_page_alter).
 
-2/05/2011
+#1191762  - Added a JavaScript "Library" to check if a media query / grid layout applies.
+This libray can be used in your custom subtheme JavaScript code to find out wether or
+not a layout is currently active. You can also check for media query strings directly.
+
+#1191754  - Optimizing alpha-debug.js and alpha-debug.css.
+
+#1186924  - Set min-height to 1px for .region in alpha-debug.css so that emtpy regions
+don't collapse weirdly when toggling off the debugging blocks with the JavaScript button.
+
+#1191772  - Separated the effects of primary region option into two separate features:
+The "Primary region" dropdown now only has an effect on the width of a region by covering
+the empty space in a zone. The "Position" dropdown controls the visual positioning of
+a region while the "Weight" dropdown controls the weight of the region in the DOM.
+
+6/14/11
 =========
-#1052374  - add isset() around $content_zone and $content
+#1186924  - Added button to toggle debugging blocks on and off via JavaScript.
 
-##########################################################################################
-##### Changes in: 7.x-2.0-alpha10
-########################################################################################## 
+#1188422  - Delta templates can now use the debugging settings too.
 
-2/03/2011
+#1188480  - The user-defined CSS classes for zones did not find their way into the HTML
+output due to a typo in the zone preproccesor. This is now fixed.
+
+6/12/11
 =========
-#1050404  - undefined variable: title if title is not set on page
+#1184122  - The main page content block did not get placed properly by drupal_render_page.
+We now anticipate that behavior in special cases where the user disabled the main page
+content block in the blocks configuration and set it before drupal_render_page can break
+it.
 
-##########################################################################################
-##### Changes in: 7.x-2.0-alpha9
-########################################################################################## 
+#1184144  - The default settings of the starterkits now activate the CSS files that each
+starterkit ships with by default.
 
-2/02/2011
+#1184546  - Merged the zone and region configuration tabs into one single tab and made
+the zones and regions collapsible fieldsets.
+
+6/09/11
 =========
-#0000000  - general updates, removed placholder blocks from omega_tools, and turned those
-            into items rendered BY omega via a theme setting instead. Can be found under
-            the Grid Overlay/Debugging section of the theme settings page.
+#1183482  - Increase the weight of the starterkits default stylesheets so they are able
+to override the built-in Omega and Alpha stylesheets. Also setting the Alpha stylesheets
+to a weight of -20.
 
-1/17/2011
-=========
-#1029442  - Problem with Admin theme settings - fatal error, ns()
-
-
-##########################################################################################
-##### Changes in: 7.x-2.0-alpha8
-########################################################################################## 
-
-1/13/2011
-=========
-#978812   - Head tile and strip tags
-
-1/14/2011
-=========
-#1024060  - Regions set to 0 (zero) width should not be rendered
-          - General cleanup, removing debug calls
-          
-1/15/2011
-=========
-#1028552  - Avoid from rendering empty zones.
-
-1/16/2011
-=========
-#1029262  - Avoid from rendering empty zone groups.
+#1184006  - Replaced the debugging blocks with simple markup elements. They have the same
+functionality but come with less problems.

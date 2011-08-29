@@ -1,7 +1,4 @@
-<article class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
-  <?php print $unpublished; ?>
-
+<article<?php print $attributes; ?>>
   <header>
     <?php print render($title_prefix); ?>
     <?php if ($title): ?>
@@ -10,6 +7,9 @@
     <?php print render($title_suffix); ?>
     <?php if ($new): ?>
       <em class="new"><?php print $new ?></em>
+    <?php endif; ?>
+    <?php if (isset($unpublished)): ?>
+      <em class="unpublished"><?php print $unpublished; ?></em>
     <?php endif; ?>
   </header>
 
@@ -34,7 +34,7 @@
   <?php endif; ?>
 
   <?php if (!empty($content['links'])): ?>
-    <nav class="links clearfix"><?php print render($content['links']); ?></nav>
+    <nav class="links comment-links clearfix"><?php print render($content['links']); ?></nav>
   <?php endif; ?>
 
 </article>

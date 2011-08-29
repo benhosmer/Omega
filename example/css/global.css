@@ -1,0 +1,120 @@
+/* This file will hold the main styles for your website. */
+/* This file is a base starter file with the regions and wrappers */
+/* pre-filled for easy identification. This style sheet also assumes */
+/* that the full-width wrappers are enabled for each zone */
+
+#page {
+	background-color: #000000;
+	}
+
+	#zone-user-wrapper {
+		background-color: #3399FF; 		
+		}
+			#zone-user {
+				background-color: #0000FF;
+				}
+					#region-user-first {
+						background-color: #A3A3CC;
+						}
+					#region-user-second {
+						background-color: #C8C8E0;
+						}
+	
+	#zone-branding-wrapper {
+		background-color: #fff;
+		}
+			#zone-branding {
+				background-color: #FFFF99;
+				}
+				#region-branding {
+					background-color: #FFFFCC;
+					}
+	
+	#zone-menu-wrapper {
+		background-color: #3399FF; 		
+		}
+			#region-menu {
+				background-color: #FF6699;
+				}
+			
+	
+	#zone-header-wrapper {
+		background-color: #FFF;
+		}
+		#zone-header {
+			background-color: #00CC66;
+			}
+			#region-header-first {
+				background-color: #007A3D;
+				}
+			#region-header-second { 
+				background-color: #00552B;
+				}
+	
+	#zone-preface-wrapper {
+		background-color: #3399FF;
+		}
+		#zone-preface {
+			background-color: #CCCCFF;
+			}
+			#region-preface-first {
+				background-color: #FF66FF;
+				}
+			#region-preface-second {
+				background-color: #FF3399;
+				}
+	
+			#region-preface-third {
+				background-color: #FF5050;
+				}
+				
+		#zone-content {
+			background-color: #FFF;
+			}
+			#breadcrumb {
+				background-color: #3333FF;
+				}
+			#messages {
+				background-color: #66FF66;
+				}
+			#region-content {
+				background-color: #009999;
+				}
+			#region-sidebar-first {
+				background-color: #CC00FF;
+				}
+			#region-sidebar-second {
+				background-color: #7A0099;
+				}
+		
+		#zone-postscript-wrapper {
+			background-color: #3399FF;
+			}
+				#zone-postscript {
+					background-color: #000;
+					}
+						#region-postscript-first {
+						background-color: #0066CC;
+						}
+						#region-postscript-second {
+						background-color: #0033CC;
+						}
+						#region-postscript-third {
+						background-color: #0000CC;
+						}
+						#region-postscript-fourth {
+						background-color: #336699;
+						}
+						
+		#zone-footer-wrapper {
+			background-color: #FFF;
+			}
+				#zone-footer {
+					background-color: ##FF3300;
+					}
+						#region-footer-first {
+							background-color: #00CC00;
+							}
+						#region-footer-second {
+							background-color: #669900;
+							}

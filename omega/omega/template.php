@@ -1,287 +1,223 @@
 <?php
 
-/*
-##########################################################################################
-      _                _                                  _                     _
-   __| | _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_    __ _  ___  ___| | _____
-  / _` |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|  / _` |/ _ \/ _ \ |/ / __|
- | (_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_  | (_| |  __/  __/   <\__ \
-  \__,_|\___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|  \__, |\___|\___|_|\_\___/
-                              |_|                               |___/
-##########################################################################################
-*/
+require_once dirname(__FILE__) . '/includes/omega.inc';
+require_once dirname(__FILE__) . '/includes/omega.theme.inc';
 
 /**
- * @file
- * Contains theme functions, preprocess and process overrides, and custom
- * functions for the Omega theme.
+ * Implements hook_alpha_regions_alter().
  */
-
-// include general functions required both in template.php AND theme-settings.php
-require_once(drupal_get_path('theme', 'omega') . '/inc/theme-functions.inc');
-// include general theme override functions
-require_once(drupal_get_path('theme', 'omega') . '/inc/theme.inc');
+function omega_alpha_regions_alter(&$regions, $theme) {
+  foreach ($regions as $region => &$item) {
+    $item['equal_height_container'] = alpha_region_get_setting('equal_height_container', $region, FALSE, $theme);
+    $item['equal_height_element'] = alpha_region_get_setting('equal_height_element', $region, FALSE, $theme);
+  }
+}
 
 /**
-  * Implements hook_preprocess().
-  *
-  * This function checks to see if a hook has a preprocess file associated with it
-  * and if so, loads it.
-  *
-  * This makes it easier to keep sorted the preprocess functions that can be present
-  * in the template.php file. You may still use hook_preprocess_page, etc in
-  * template.php or create a file preprocess-page.inc in the preprocess folder to
-  * include the appropriate logic to your preprocess functionality.
-  *
-  * @param $vars
-  * @param $hook
-  */
-function omega_preprocess(&$vars, $hook) {
-  // Collect all information for the active theme.
-  $themes_active = array();
-  global $theme_info;
+ * Implements hook_alpha_zones_alter().
+ */
+function omega_alpha_zones_alter(&$zones, $theme) {
+  foreach ($zones as $zone => &$item) {
+    $item['equal_height_container'] = alpha_zone_get_setting('equal_height_container', $zone, FALSE, $theme);
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function omega_alpha_preprocess_html(&$vars) {
+  $theme = alpha_get_theme();
+  $vars['rdf'] = new stdClass;  
   
-  if (substr($hook, 0, 4) == 'zone') {
-    $hook = 'zone';
+  if (module_exists('rdf')) {
+    $vars['doctype'] = '<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">' . "\n";
+    $vars['rdf']->version = ' version="HTML+RDFa 1.1"';
+    $vars['rdf']->namespaces = $vars['rdf_namespaces'];
+    $vars['rdf']->profile = ' profile="' . $vars['grddl_profile'] . '"';
+  } 
+  else {
+    $vars['doctype'] = '<!DOCTYPE html>' . "\n";
+    $vars['rdf']->version = '';
+    $vars['rdf']->namespaces = '';
+    $vars['rdf']->profile = '';
   }
-  // If there is a base theme, collect the names of all themes that may have
-  // preprocess files to load.
-  if (isset($theme_info->base_theme)) {
-    global $base_theme_info;
-    foreach ($base_theme_info as $base) {
-      $themes_active[] = $base->name;
-    }
-  }
-
-  // Add the active theme to the list of themes that may have preprocess files.
-  $themes_active[] = $theme_info->name;
-  // Check all active themes for preprocess files that will need to be loaded.
-  foreach ($themes_active as $name) {
-    if (is_file(drupal_get_path('theme', $name) . '/preprocess/preprocess-' . str_replace('_', '-', $hook) . '.inc')) {
-      include(drupal_get_path('theme', $name) . '/preprocess/preprocess-' . str_replace('_', '-', $hook) . '.inc');
-    }
-  }
-}
-
-/**
- * Implementation of hook_process()
- * 
- * This function checks to see if a hook has a process file associated with 
- * it, and if so, loads it.
- * 
- * This makes it easier to keep sorted the process functions that can be present in the 
- * template.php file. You may still use hook_process_page, etc in template.php
- * or create a file process-page.inc in the process folder to include the appropriate
- * logic to your process functionality
- * 
- * @param $vars
- * @param $hook
- */
-function omega_process(&$vars, $hook) {
-// Collect all information for the active theme.
-  $themes_active = array();
-  global $theme_info;
-  if (substr($hook, 0, 4) == 'zone') {
-    $hook = 'zone';
-  }
-  // If there is a base theme, collect the names of all themes that may have 
-  // preprocess files to load.
-  if (isset($theme_info->base_theme)) {
-    global $base_theme_info;
-    foreach ($base_theme_info as $base) {
-      $themes_active[] = $base->name;
-    }
-  }
-
-  // Add the active theme to the list of themes that may have preprocess files.
-  $themes_active[] = $theme_info->name;
-
-  // Check all active themes for preprocess files that will need to be loaded.
-  foreach ($themes_active as $name) {
-    if (is_file(drupal_get_path('theme', $name) . '/process/process-' . str_replace('_', '-', $hook) . '.inc')) {
-      include(drupal_get_path('theme', $name) . '/process/process-' . str_replace('_', '-', $hook) . '.inc');
-    }
-  }
-}
-
-/**
- * Implements template_preprocess_html().
- *
- * Preprocessor for page.tpl.php template file.
- * The default functionality can be found in preprocess/preprocess-page.inc
- */
-function omega_preprocess_html(&$vars) {
   
-}
-
-/**
- * Implements template_preprocess_page().
- */
-function omega_preprocess_page(&$vars) {
-
-}
-
-/**
- * Implements template_preprocess_node().
- */
-function omega_preprocess_node(&$vars) {
-
-}
-
-/**
- * Implements template_process_page().
- */
-function omega_process_page(&$vars) {
-
-}
-
-/**
- * Implements template_process_node().
- */
-function omega_process_node(&$vars) {
-  // Convert node attributes to a string and append to existing RDFa attributes.
-  $vars['attributes'] .= drupal_attributes($vars['node_attributes']);
-}
-
-
-function omega_preprocess_zone(&$vars) {
-  
-}
-
-function omega_process_zone(&$vars) {
-  
-}
-
-
-/**
- * The rfilter function takes one argument, an array of values for the regions
- * for a "group" of regions like preface or postscript
- * @param $vars
- */
-function rfilter($vars) {
-  return count(array_filter($vars));
-}
-
-
-/**
- * Implements hook_css_alter().
- * Alter CSS files before they are output on the page.
- *
- * @param $css
- *   An array of all CSS items (files and inline CSS) being requested on the page.
- */
-function omega_css_alter(&$css) {
-  // fluid width option
-  if (theme_get_setting('omega_fixed_fluid') == 'fluid') {
-    $css_960 = drupal_get_path('theme', 'omega') . '/css/960.css';
-    if (isset($css[$css_960])) {
-      $css[$css_960]['data'] = drupal_get_path('theme', 'omega') . '/css/960-fluid.css';
-    }
-  }  
-}
-
-/**
- * Implements hook_theme().
- *
- * @todo figure out WTF with template suggestions
- * 
- * @see delta_theme()
- * @see http://api.drupal.org/api/function/hook_theme/7
- * - There was cause to create a module here to implement a proper theme 
- *   function. There was major issue with attempting to get the zone elements 
- *   to work properly. zone.tpl.php was being used when declared here in 
- *   omega_theme(), however, suggestions for more specific templates was NOT.
- *   
- * - The need here was to have the priority order be:
- *   - zone-ZONEID.tpl.php (the actual zone itself has a custom override)
- *     each have their own custom template to use for more generic implementations
- *   - zone.tpl.php (default)
- */
-function omega_theme($existing, $type, $theme, $path) {
-  $hooks = array();
-  $preprocess_functions = array(
-    'template_preprocess', 
-    'template_preprocess_zone',
-    'omega_preprocess',
-    'omega_preprocess_zone',
-  );
-  $process_functions = array(
-    'template_process', 
-    'template_process_zone',
-    'omega_process',
-    'omega_process_zone'
-  );
-  $hooks['zone'] = array(
-    'template' => 'zone',
-    'path' => $path . '/templates',
-    'render element' => 'zone',
-    'pattern' => 'zone__',
-    'preprocess functions' => $preprocess_functions,
-    'process functions' => $process_functions,
-  );
-  return $hooks;
-}
-
-
-/**
- * Implements hook_page_alter
- */
-function omega_page_alter($page) {
-/**
- * Implements hook_page_alter().
- *
- * Look for the last block in the region. This is impossible to determine from
- * within a preprocess_block function.
- *
- * @param $page
- *   Nested array of renderable elements that make up the page.
- */
-  // Look in each visible region for blocks.
-  foreach (system_region_list($GLOBALS['theme'], REGIONS_VISIBLE) as $region => $name) {
-    if (!empty($page[$region])) {
-      // Find the last block in the region.
-      $blocks = array_reverse(element_children($page[$region]));
-      while ($blocks && !isset($page[$region][$blocks[0]]['#block'])) {
-        array_shift($blocks);
-      }
-      if ($blocks) {
-        $page[$region][$blocks[0]]['#block']->last_in_region = TRUE;
-      }
-    }
-  }
-}
-
-function omega_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    // add a login link to the horizontal login bar block
-    case 'user_login_block':
-      if(omega_theme_get_setting('user_login_form')) {
-        $form['links']['#markup'] = "";
-        
-        $items = array();
-        $items[] = l(t('Login'), 'user/login', array('attributes' => array('title' => t('Log in.'), 'class' => 'login-submit-link')));
-        if (variable_get('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL)) {
-          $items[] = l(t('Register'), 'user/register', array('attributes' => array('title' => t('Create a new user account.'))));
-        }
-        $items[] = l(t('Password'), 'user/password', array('attributes' => array('title' => t('Request new password via e-mail.'))));
-        $form['links']['#markup'] = theme('item_list', array('items' => $items));
-      }
+  if (alpha_library_active('omega_mediaqueries')) {
+    $layouts = array();
     
-      // HTML5 placeholder attribute
-      $form['name']['#attributes']['placeholder'] = omega_theme_get_setting('user_login_name_placeholder');
-      $form['pass']['#attributes']['placeholder'] = omega_theme_get_setting('user_login_pass_placeholder');
+    if (isset($theme->grids[$theme->settings['grid']])) {
+      foreach ($theme->grids[$theme->settings['grid']]['layouts'] as $layout) {
+        if ($layout['enabled']) {
+          $layouts[$layout['layout']] = $layout['media'];
+        }
+      }
 
-      break;
-    case 'search_block_form':
-      // HTML5 placeholder attribute
-      $form['search_block_form']['#attributes']['placeholder'] = omega_theme_get_setting('omega_search_default_text');
-      break;
+      drupal_add_js(array('omega' => array(      
+        'layouts' => array(
+          'primary' => $theme->grids[$theme->settings['grid']]['primary'],
+          'order' => array_keys($layouts), 
+          'queries' => $layouts,
+        ),        
+      )), 'setting');
+    }
   }
 }
 
-// hook_html_head_alter().
-function omega_html_head_alter(&$head_elements) {
-  $head_elements['system_meta_content_type']['#attributes'] = array(
-    'charset' => 'utf-8',
-  );
+/**
+ * Implements hook_preprocess_comment().
+ */
+function omega_alpha_preprocess_comment(&$vars) {
+  // Prepare the arrays to handle the classes and ids for the node container.
+  $vars['attributes_array']['class'][] = 'clearfix';
+  
+  $vars['datetime'] = format_date($vars['comment']->created, 'custom', 'c');
+  $vars['unpublished'] = '';
+  
+  if ($vars['status'] == 'comment-unpublished') {
+    $vars['unpublished'] = '<div class="unpublished">' . t('Unpublished') . '</div>';
+  }
+}
+
+/**
+ * Implements hook_preprocess_zone().
+ */
+function omega_alpha_preprocess_zone(&$vars) {
+  if (alpha_library_active('omega_equalheights')) {
+    if (!empty($vars['elements']['#data']['equal_height_container'])) {
+      $vars['content_attributes_array']['class'][] = 'equal-height-container';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function omega_alpha_preprocess_region(&$vars) {
+  if (alpha_library_active('omega_equalheights')) {
+    if (!empty($vars['elements']['#data']['equal_height_container'])) {
+      $vars['content_attributes_array']['class'][] = 'equal-height-container';
+    }
+    
+    if (!empty($vars['elements']['#data']['equal_height_element'])) {
+      $vars['attributes_array']['class'][] = 'equal-height-element';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function omega_alpha_preprocess_node(&$vars) {
+  // Prepare the arrays to handle the classes and ids for the node container.
+  $vars['attributes_array']['id'] = drupal_html_id('node-' . $vars['type'] . '-' . $vars['nid']);
+  
+  // Add a class to allow styling based on publish status.
+  if ($vars['status']) {
+    $vars['attributes_array']['class'][] = 'node-published';
+  }
+  
+  // Add a class to allow styling based on promotion.
+  if (!$vars['promote']) {
+    $vars['attributes_array']['class'][] = 'node-not-promoted';
+  }
+  
+  // Add a class to allow styling based on sticky status.
+  if (!$vars['sticky']) {
+    $vars['attributes_array']['class'][] = 'node-not-sticky';
+  }
+  
+  // Add a class to allow styling of nodes being viewed by the author of the node in question.
+  if ($vars['uid'] == $vars['user']->uid) {
+    $vars['attributes_array']['class'][] = 'self-posted';
+  }
+  
+  // Add a class to allow styling based on the node author.
+  $vars['attributes_array']['class'][] = drupal_html_class('author-' . $vars['node']->name);
+  
+  // Add a class to allow styling for zebra striping.
+  $vars['attributes_array']['class'][] = drupal_html_class($vars['zebra']);
+  
+  // Add a class to make the node container self clearing.
+  $vars['attributes_array']['class'][] = 'clearfix';  
+  
+  $vars['content_attributes_array']['class'][] = 'content';
+  $vars['content_attributes_array']['class'][] = 'clearfix';
+  
+  // Adding a class to the title attributes
+  $vars['title_attributes_array']['class'][] = 'node-title';
+}
+
+/**
+ * Implements hook_process_region().
+ */
+function omega_alpha_process_region(&$vars) {
+  if (in_array($vars['elements']['#region'], array('content', 'menu', 'branding'))) {
+    $theme = alpha_get_theme();
+    
+    switch ($vars['elements']['#region']) {
+      case 'content':
+        $vars['title_prefix'] = $theme->page['title_prefix'];
+        $vars['title'] = $theme->page['title'];
+        $vars['title_suffix'] = $theme->page['title_suffix'];
+        $vars['tabs'] = $theme->page['tabs'];
+        $vars['action_links'] = $theme->page['action_links'];      
+        $vars['title_hidden'] = $theme->page['title_hidden'];
+        $vars['feed_icons'] = $theme->page['feed_icons'];
+        break;
+      
+      case 'menu':
+        $vars['main_menu'] = $theme->page['main_menu'];
+        $vars['secondary_menu'] = $theme->page['secondary_menu'];
+        break;
+      
+      case 'branding':
+        $vars['site_name'] = $theme->page['site_name'];
+        $vars['linked_site_name'] = l($vars['site_name'], '<front>', array('attributes' => array('rel' => 'home', 'title' => t('Home')), 'html' => TRUE));
+        $vars['site_slogan'] = $theme->page['site_slogan'];      
+        $vars['site_name_hidden'] = $theme->page['site_name_hidden'];
+        $vars['site_slogan_hidden'] = $theme->page['site_slogan_hidden'];
+        $vars['logo'] = $theme->page['logo'];
+        $vars['logo_img'] = $vars['logo'] ? '<img src="' . $vars['logo'] . '" alt="' . $vars['site_name'] . '" id="logo" />' : '';
+        $vars['linked_logo_img'] = $vars['logo'] ? l($vars['logo_img'], '<front>', array('attributes' => array('rel' => 'home', 'title' => t($vars['site_name'])), 'html' => TRUE)) : '';
+        break;      
+    }
+  }
+}
+
+/**
+ * Implements hook_process_zone().
+ */
+function omega_alpha_process_zone(&$vars) {
+  $theme = alpha_get_theme();
+  
+  if ($vars['elements']['#zone'] == 'content') {
+    $vars['messages'] = $theme->page['messages'];
+    $vars['breadcrumb'] = $theme->page['breadcrumb'];
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function omega_alpha_preprocess_block(&$vars) {
+  $theme = alpha_get_theme();
+  
+  // Adding a class to the title attributes
+  $vars['title_attributes_array']['class'][] = 'block-title';
+
+  // Add odd/even zebra classes into the array of classes
+  $vars['attributes_array']['class'][] = $vars['block_zebra'];
+  
+  if(empty($vars['block']->subject) && (string) $vars['block']->subject != '0') {
+    // Add a class to provide CSS for blocks without titles.
+    $vars['attributes_array']['class'][] = 'block-without-title';
+  }
+  
+  if ($vars['block']->module != 'alpha-debug' && isset($vars['block']->region)) {
+    if (alpha_library_active('omega_equalheights') && isset($theme->regions[$vars['block']->region])) {
+      if ($theme->regions[$vars['block']->region]['equal_height_container']) {
+        $vars['attributes_array']['class'][] = 'equal-height-element';
+      }
+    }
+  }
 }
