@@ -1,12 +1,14 @@
 /* Created: 16-05-2011. Modified 29-08-2011 18:05 */
 
-Readme for Omega Base Theme subtheme.css
+Readme for Omega Base Theme global.css
 
 This is intended to make subtheming using the Omega Theme system quicker by creating a 
-subtheme.css with commonly used and overridden values. The colors are meant to be replaced. The 
-.info file also has been modified to reflect this issue: http://drupal.org/node/1074872
+global.css file located within the example/css directory with commonly used and overidden values. 
 
-It adds wrappers around the content for bettery coloring.
+The colors are meant to be replaced but serve as a visual reference to orient you to the locations
+of the various zones and wrappers. 
+
+It adds wrappers around the content for better coloring.
 
 It requires the Omega them folder because it is an Omega base theme.
 
