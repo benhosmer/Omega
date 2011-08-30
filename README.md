@@ -3,7 +3,7 @@
 Readme for Omega Base Theme global.css
 
 This is intended to make subtheming using the Omega Theme system quicker by creating a 
-global.css file located within the example/css directory with commonly used and overidden values. 
+global.css file located within the example/css directory with commonly used and overridden values. 
 
 The colors are meant to be replaced but serve as a visual reference to orient you to the locations
 of the various zones and wrappers. 
